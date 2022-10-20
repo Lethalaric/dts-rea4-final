@@ -7,7 +7,7 @@ import {
     Route,
     Link, Routes
 } from "react-router-dom";
-import Navbar from "./sections/navbar";
+import Navbar from "./sections/Navbar/navbar";
 import Homepage from "./pages/homepage";
 import AboutPage from "./pages/aboutPage";
 import ChannelPage from "./pages/channelPage";
