@@ -23,9 +23,18 @@ function App() {
   return (
       <Router>
         <Routes>
-            <Route path={"/"} element={<Navbar />} />
-                <Route path={"/"} element={<Homepage />} />
+            <Route element={<Navbar />} >
+                <Route index path={"/"} element={<Homepage />} />
                 <Route path={"about"} element={<AboutPage />} />
+                <Route path={"channels"} element={<ChannelPage />} />
+                <Route path={"become-contributor"} element={<BecomeAContributorPage />} />
+                <Route path={"submit-story"} element={<SubmitAStoryPage />} />
+                <Route path={"privacy-policy"} element={<PrivacyPolicyPage />} />
+                <Route path={"term-of-use"} element={<TermsOfUsePage />} />
+                <Route path={"contact"} element={<ContactPage />} />
+                <Route path={"cookie-policy"} element={<CookiePolicyPage />} />
+                <Route path={"editions"} element={<EditionPage />} />
+            </Route>
         </Routes>
       </Router>
   );
