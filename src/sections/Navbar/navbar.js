@@ -18,6 +18,8 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import Toolbar from '@mui/material/Toolbar';
+import IconButton from "@mui/material/IconButton";
+import CloseIcon from "@mui/icons-material/Close";
 
 function Navbar(props) {
     const [stateOpen, setStateOpen] = useState(false);
@@ -42,7 +44,14 @@ function Navbar(props) {
           onClick={toggleDrawer(false)}
           onKeyDown={toggleDrawer(false)}
         >
-            <Toolbar />
+            <Toolbar>
+                <Box sx={{ flexGrow: 1 }} />
+                    <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+                        <IconButton sx={{mt: 1, color: 'bisque'}} size="large">
+                            <CloseIcon onClick={toggleDrawer(false)} />
+                        </IconButton>
+                    </Box>
+            </Toolbar>
             <Divider />
           <List>
             {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
