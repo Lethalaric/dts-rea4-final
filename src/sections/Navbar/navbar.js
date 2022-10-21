@@ -17,6 +17,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+import Toolbar from '@mui/material/Toolbar';
 
 function Navbar(props) {
     const [stateOpen, setStateOpen] = useState(false);
@@ -36,11 +37,13 @@ function Navbar(props) {
 
     const list = () => (
         <Box
-          sx={{ width: 1/2 }}
+          sx={{ width: '50vw' }}
           role="presentation"
           onClick={toggleDrawer(false)}
           onKeyDown={toggleDrawer(false)}
         >
+            <Toolbar />
+            <Divider />
           <List>
             {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
               <ListItem key={text} disablePadding>
@@ -48,7 +51,7 @@ function Navbar(props) {
                   <ListItemIcon>
                     {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                   </ListItemIcon>
-                  <ListItemText primary={text} />
+                  <ListItemText primary={text} sx={{ color: 'bisque' }} />
                 </ListItemButton>
               </ListItem>
             ))}
@@ -86,8 +89,8 @@ function Navbar(props) {
                     <Button onClick={toggleDrawer(true)}>Drawer</Button>
                 </div>
                 <div id={"navbar-section-right"}>
-                    <SearchRounded/>
-                    <DehazeRounded/>
+                    <Button onClick={toggleDrawer(true)} sx={{ color: 'bisque' }} ><SearchRounded/></Button>
+                    <Button onClick={toggleDrawer(true)} sx={{ color: 'bisque' }} ><DehazeRounded/></Button>
                 </div>
             </nav>
             <main>
@@ -98,7 +101,15 @@ function Navbar(props) {
                 open={stateOpen}
                 onClose={toggleDrawer(false)}
                 onOpen={toggleDrawer(true)}
-                >
+                hideBackdrop='true'
+                PaperProps={{
+                    sx: {
+                        color: "rgb(255, 228, 196)",
+                        backgroundColor: "rgb(40,44,52)",
+                        elevation: 0,
+                    }
+                }}
+            >
                 {list()}
             </SwipeableDrawer>
         </div>
