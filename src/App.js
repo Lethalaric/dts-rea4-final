@@ -18,6 +18,7 @@ import TermsOfUsePage from "./pages/termsOfUsePage";
 import ContactPage from "./pages/contactPage";
 import CookiePolicyPage from "./pages/cookiePolicyPage";
 import EditionPage from "./pages/editionPage";
+import SignupPage from "./pages/SignupPage";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
                 <Route path={"contact"} element={<ContactPage />} />
                 <Route path={"cookie-policy"} element={<CookiePolicyPage />} />
                 <Route path={"editions"} element={<EditionPage />} />
+                <Route path={"signup"} element={<SignupPage />} />
             </Route>
         </Routes>
       </Router>
