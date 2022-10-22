@@ -1,9 +1,11 @@
 import React from 'react';
-import { Container } from '@mui/material';
-import {DehazeRounded, SearchRounded} from "@mui/icons-material";
+import {Button, Container, Toolbar} from '@mui/material';
+import {DehazeRounded, Search, SearchRounded} from "@mui/icons-material";
 import logo from '../../assets/logo.png';
 import {Link, NavLink, Outlet, useNavigate} from "react-router-dom";
 import navbar from "./navbar.css";
+import Footer from "../footer";
+import SearchBar from "../../components/searchBar";
 
 function Navbar(props) {
     return (
@@ -21,14 +23,21 @@ function Navbar(props) {
                     <NavLink to={"about"}>About us</NavLink>
                     <NavLink to={"channels"}>Channel</NavLink>
                 </div>
-                <div id={"navbar-section-right"}>
-                    <SearchRounded/>
-                    <DehazeRounded/>
-                </div>
+                <Toolbar>
+                    <Button variant={"outlined"}>
+                        <Search />
+                    </Button>
+                    <Button variant={"outlined"}>
+                        <DehazeRounded/>
+                    </Button>
+                </Toolbar>
             </nav>
             <main>
                 <Outlet />
             </main>
+            <footer>
+                <Footer />
+            </footer>
         </div>
     );
 }

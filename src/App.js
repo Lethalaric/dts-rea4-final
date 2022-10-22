@@ -18,8 +18,10 @@ import TermsOfUsePage from "./pages/termsOfUsePage";
 import ContactPage from "./pages/contactPage";
 import CookiePolicyPage from "./pages/cookiePolicyPage";
 import EditionPage from "./pages/editionPage";
+import NewsPage from "./pages/newsPage";
 
 function App() {
+
   return (
       <Router>
         <Routes>
@@ -34,6 +36,7 @@ function App() {
                 <Route path={"contact"} element={<ContactPage />} />
                 <Route path={"cookie-policy"} element={<CookiePolicyPage />} />
                 <Route path={"editions"} element={<EditionPage />} />
+                <Route path={"news/:id"} element={<NewsPage />} />
             </Route>
         </Routes>
       </Router>

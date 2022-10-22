@@ -1,7 +1,18 @@
 nav {
     display: flex;
     justify-content: space-between;
-    background-color: #282c34;
+    color: white;
+    background-color: black;
+}
+
+main {
+    background-color: black;
+    color: white;
+}
+
+footer {
+    background-color: black;
+    color: white;
 }
 
 #navbar-section-left {
@@ -11,7 +22,6 @@ nav {
 
 #navbar-section-left > * {
     padding-right: 10px;
-    color: bisque;
     font-size: 20px;
 }
 
