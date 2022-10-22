@@ -2,7 +2,6 @@ import logo from './logo.svg';
 import './App.css';
 import React from "react";
 import {
-    BrowserRouter as Router,
     Switch,
     Route,
     Link, Routes
@@ -23,7 +22,6 @@ import SigninPage from "./pages/SigninPage";
 
 function App() {
   return (
-      <Router>
         <Routes>
             <Route element={<Navbar />} >
                 <Route index path={"/"} element={<Homepage />} />
@@ -40,7 +38,6 @@ function App() {
                 <Route path={"signin"} element={<SigninPage />} />
             </Route>
         </Routes>
-      </Router>
   );
 }
 

@@ -1,4 +1,7 @@
-import * as React from 'react';
+import { useContext, useState } from "react";
+import { AuthContext } from "../components/Provider/AuthProvider";
+import { signingIn } from "../components/utils/firebase/signin";   
+
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -11,22 +14,6 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
-const theme = createTheme();
 
 export default function SigninPage() {
   const handleSubmit = (event) => {
@@ -36,6 +23,22 @@ export default function SigninPage() {
       email: data.get('email'),
       password: data.get('password'),
     });
+  };
+
+  const { setUser } = useContext(AuthContext);
+
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+
+  const signIn = async () => {
+    // navigate('/')
+    const signedIn = await signingIn(email, password);
+
+    if (!signedIn.message) {
+      setUser(signedIn.accessToken)
+    } else {
+      console.log("error signIn", signedIn.message)
+    }
   };
 
   return (
@@ -61,6 +64,8 @@ export default function SigninPage() {
               name="email"
               autoComplete="email"
               autoFocus
+              value={email} 
+              onChange={(e) => setEmail(e.target.value)}
             />
             <TextField
               margin="normal"
@@ -71,6 +76,8 @@ export default function SigninPage() {
               type="password"
               id="password"
               autoComplete="current-password"
+              value={password} 
+              onChange={(e) => setPassword(e.target.value)}
             />
                 <Link href="#" variant="body2">
                   Forgot password?
@@ -80,6 +87,7 @@ export default function SigninPage() {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              onClick={signIn}
             >
               Login
             </Button>
