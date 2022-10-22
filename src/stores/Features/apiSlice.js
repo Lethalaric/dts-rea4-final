@@ -19,8 +19,8 @@ export const ApiSlice = createApi({
             })
         }),
         getByUuid: build.query({
-            query: (uuid) => ({
-                url: `/news/uuid/${uuid}`,
+            query: id => ({
+                url: `/news/uuid/${id}`,
                 params: {
                     api_token: apiToken
                 }
@@ -47,4 +47,4 @@ export const ApiSlice = createApi({
     })
 })
 
-export const { useGetAllNewsQuery } = ApiSlice;
+export const { useGetAllNewsQuery, useGetByUuidQuery, useGetSimilarNewsQuery, useGetTopNewsQuery } = ApiSlice;

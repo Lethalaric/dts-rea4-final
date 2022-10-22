@@ -1,9 +1,27 @@
 import React from 'react';
+import NewsHeader from "../components/newsHeader";
+import SideNews from "../components/sideNews";
+import NewsContent from "../components/newsContent";
+import Comment from "../components/comment";
+import NewsCard from "../components/newsCard";
 
 function NewsPage(props) {
     return (
         <div>
-            News Page
+            <div>
+                <NewsHeader />
+                <SideNews />
+            </div>
+            <div>
+                <NewsContent/>
+            </div>
+            <div>
+                <Comment />
+            </div>
+            <div>
+                <p>Related Categories</p>
+                <NewsCard />
+            </div>
         </div>
     );
 }

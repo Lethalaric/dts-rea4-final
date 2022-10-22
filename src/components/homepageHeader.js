@@ -1,7 +1,8 @@
 import React from 'react';
-import {CircularProgress, Container, Link, Typography} from "@mui/material";
+import {CircularProgress, Container, Typography} from "@mui/material";
 import image from '../assets/BNNW_AmericanBuffalo--11.jpg';
 import {useGetAllNewsQuery} from "../stores/Features/apiSlice";
+import {Link} from 'react-router-dom'
 
 function HomepageHeader(props) {
     const {
@@ -50,7 +51,7 @@ const container = (news) => {
             }}
         >
             <Typography>TODAY's BEUTIFUL NEWS</Typography>
-            <Link href={`/news/${news.uuid}`}>
+            <Link to={`/news/${news.uuid}`}>
                 <Typography variant={"h2"}>{news.title}</Typography>
             </Link>
             <div
