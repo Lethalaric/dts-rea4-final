@@ -8,7 +8,11 @@ import NewsCard from "../components/newsCard";
 function NewsPage(props) {
     return (
         <div>
-            <div>
+            <div
+                style={{
+                    display: "flex"
+                }}
+            >
                 <NewsHeader />
                 <SideNews />
             </div>
