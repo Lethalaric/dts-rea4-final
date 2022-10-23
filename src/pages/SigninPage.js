@@ -16,15 +16,6 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 
 export default function SigninPage() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
-
   const { setUser } = useContext(AuthContext);
 
   const [email, setEmail] = useState("")
@@ -42,78 +33,111 @@ export default function SigninPage() {
   };
 
   return (
-      <Container component="main" maxWidth="xs">
+      <Container maxWidth='xl'>
         <Box
           sx={{
-            marginTop: 8,
+            pt: 8,
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'center',
+            alignItems: 'flex-start'
           }}
         >
           <Typography component="h1" variant="h3">
             Login
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <Box component="form" noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required
               fullWidth
-              id="email"
               label="Email Address"
-              name="email"
-              autoComplete="email"
               autoFocus
               value={email} 
               onChange={(e) => setEmail(e.target.value)}
+              sx={{
+                "& .MuiInputBase-root": {
+                  color: 'white'
+                },
+                "& .MuiFormLabel-root": {
+                  color: 'white'
+                },
+                "& .MuiFormLabel-root.Mui-focused": {
+                  color: 'white'
+                },
+                "& .MuiOutlinedInput-root.Mui-focused": {
+                  "& > fieldset": {
+                    borderColor: "white"
+                  }
+                },
+                "& .MuiOutlinedInput-root:hover": {
+                  "& > fieldset": {
+                    borderColor: "white"
+                  }
+                },
+                backgroundColor: '#282C34', 
+              }}
             />
             <TextField
               margin="normal"
+              label="Password"
               required
               fullWidth
-              name="password"
-              label="Password"
               type="password"
-              id="password"
-              autoComplete="current-password"
               value={password} 
               onChange={(e) => setPassword(e.target.value)}
+              sx={{
+                "& .MuiInputBase-root": {
+                  color: 'white'
+                },
+                "& .MuiFormLabel-root": {
+                  color: 'white'
+                },
+                "& .MuiFormLabel-root.Mui-focused": {
+                  color: 'white'
+                },
+                "& .MuiOutlinedInput-root.Mui-focused": {
+                  "& > fieldset": {
+                    borderColor: "white"
+                  }
+                },
+                "& .MuiOutlinedInput-root:hover": {
+                  "& > fieldset": {
+                    borderColor: "white"
+                  }
+                },
+                backgroundColor: '#282C34', 
+              }}
             />
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-              onClick={signIn}
-            >
-              Login
-            </Button>
-            <Typography component="h1" variant="h6">
+            {/*<Link href="#" variant="body2" sx={{ color: 'white'}}>
+              Forgot password?
+            </Link>*/}
+            <Box sx={{ alignItems: 'flex-start' }}>
+              <Button
+                variant="contained"
+                sx={{ 
+                  mt: 3, mb: 2,
+                  color: '#282C34', backgroundColor: 'bisque', borderColor: 'bisque'
+                }}
+                onClick={signIn}
+
+              >
+                Login
+              </Button>
+            </Box>
+            <Link href="/signup" variant="body" sx={{ color: 'white'}}>
               Don’t have an account yet?
-            </Typography>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
-              Create Account
-            </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
-              </Grid>
-            </Grid>
+            </Link>
+            <Box sx={{ alignItems: 'flex-start' }}>
+              <Button
+                variant="outlined"
+                sx={{ 
+                  mt: 3, mb: 2,
+                  color: 'white', borderColor: 'bisque'
+                }}
+              >
+                Create Account
+              </Button>
+            </Box>
           </Box>
         </Box>
       </Container>

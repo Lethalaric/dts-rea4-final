@@ -20,6 +20,7 @@ import EditionPage from "./pages/editionPage";
 import NewsPage from "./pages/newsPage";
 import SignupPage from "./pages/SignupPage";
 import SigninPage from "./pages/SigninPage";
+import SudahloginPage from "./pages/SudahloginPage";
 
 function App() {
 
@@ -39,6 +40,7 @@ function App() {
                 <Route path={"news/:id"} element={<NewsPage />} />
                 <Route path={"signup"} element={<SignupPage />} />
                 <Route path={"signin"} element={<SigninPage />} />
+                <Route path={"sudahlogin"} element={<SudahloginPage />} />
             </Route>
         </Routes>
   );
