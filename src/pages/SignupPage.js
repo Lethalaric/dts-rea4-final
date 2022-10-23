@@ -1,4 +1,8 @@
-import * as React from 'react';
+import { useContext, useState } from "react";
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from "../components/Provider/AuthProvider";
+import { signingUp } from "../components/utils/firebase/signup";
+
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -11,22 +15,6 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
-const theme = createTheme();
 
 export default function SignupPage() {
   const handleSubmit = (event) => {
@@ -36,6 +24,24 @@ export default function SignupPage() {
       email: data.get('email'),
       password: data.get('password'),
     });
+  };
+
+  const { setUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+
+  const signUp = async () => {
+    const response = await signingUp(email, password);
+    console.log("response signUp", response);
+
+    if (!response.message) {
+      setUser(response.accessToken);
+    } else {
+      navigate('/signin');  // already sign up
+      console.log("error signUp", response.message)
+    }
   };
 
   return (
@@ -66,23 +72,25 @@ export default function SignupPage() {
               </Grid>
               <Grid item xs={12}>
                 <TextField
+                  autoComplete="given-name"
                   required
                   fullWidth
-                  id="email"
-                  label="Email Address"
-                  name="email"
-                  autoComplete="email"
+                  label="Email"
+                  autoFocus
+        value={email} 
+        onChange={(e) => setEmail(e.target.value)}
                 />
               </Grid>
               <Grid item xs={12}>
                 <TextField
+                  autoComplete="given-name"
                   required
                   fullWidth
-                  name="password"
                   label="Password"
-                  type="password"
-                  id="password"
-                  autoComplete="new-password"
+                  autoFocus
+        value={password} 
+        onChange={(e) => setPassword(e.target.value)}
+        type="password"
                 />
               </Grid>
             </Grid>
@@ -91,6 +99,7 @@ export default function SignupPage() {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              onClick={signUp}
             >
               Create new account
             </Button>

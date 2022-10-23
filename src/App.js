@@ -2,7 +2,6 @@ import logo from './logo.svg';
 import './App.css';
 import React from "react";
 import {
-    BrowserRouter as Router,
     Switch,
     Route,
     Link, Routes
@@ -20,11 +19,11 @@ import CookiePolicyPage from "./pages/cookiePolicyPage";
 import EditionPage from "./pages/editionPage";
 import NewsPage from "./pages/newsPage";
 import SignupPage from "./pages/SignupPage";
+import SigninPage from "./pages/SigninPage";
 
 function App() {
 
   return (
-      <Router>
         <Routes>
             <Route element={<Navbar />} >
                 <Route index path={"/"} element={<Homepage />} />
@@ -39,9 +38,9 @@ function App() {
                 <Route path={"editions"} element={<EditionPage />} />
                 <Route path={"news/:id"} element={<NewsPage />} />
                 <Route path={"signup"} element={<SignupPage />} />
+                <Route path={"signin"} element={<SigninPage />} />
             </Route>
         </Routes>
-      </Router>
   );
 }
 

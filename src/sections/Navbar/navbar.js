@@ -56,12 +56,9 @@ function Navbar(props) {
             </Toolbar>
             <Divider />
           <List>
-            {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+            {['ABOUT', 'SUBMIT A STORY'].map((text, index) => (
               <ListItem key={text} disablePadding>
                 <ListItemButton>
-                  <ListItemIcon>
-                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                  </ListItemIcon>
                   <ListItemText primary={text} sx={{ color: 'bisque' }} />
                 </ListItemButton>
               </ListItem>
@@ -69,17 +66,29 @@ function Navbar(props) {
           </List>
           <Divider />
           <List>
-            {['All mail', 'Trash', 'Spam'].map((text, index) => (
+            {['Contact', 'Channel'].map((text, index) => (
               <ListItem key={text} disablePadding>
                 <ListItemButton>
-                  <ListItemIcon>
-                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                  </ListItemIcon>
                   <ListItemText primary={text} />
                 </ListItemButton>
               </ListItem>
             ))}
           </List>
+          <Divider />
+          <Toolbar>
+            <Button 
+                variant='outlined' 
+                onClick={toggleDrawer(true)} 
+                sx={{ color: 'white', backgroundColor: '#282C34', borderColor: 'bisque' }}
+                href={'/signin'}
+            >Sign in</Button>
+            <Button 
+                variant='outlined' 
+                onClick={toggleDrawer(true)} 
+                sx={{ mx : '10px', color: '#282C34', backgroundColor: 'bisque', borderColor: 'bisque' }}
+                href={'/signup'}
+            >Create account</Button>
+          </Toolbar>
         </Box>
       );
 
@@ -97,7 +106,6 @@ function Navbar(props) {
                     </div>
                     <NavLink to={"about"}>About us</NavLink>
                     <NavLink to={"channels"}>Channel</NavLink>
-                    <Button onClick={toggleDrawer(true)}>Drawer</Button>
                 </div>
                 <div id={"navbar-section-right"}>
                     <Button onClick={toggleDrawer(true)} sx={{ color: 'bisque' }} ><SearchRounded/></Button>
