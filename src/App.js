@@ -19,6 +19,7 @@ import ContactPage from "./pages/contactPage";
 import CookiePolicyPage from "./pages/cookiePolicyPage";
 import EditionPage from "./pages/editionPage";
 import NewsPage from "./pages/newsPage";
+import SignupPage from "./pages/SignupPage";
 
 function App() {
 
@@ -37,6 +38,7 @@ function App() {
                 <Route path={"cookie-policy"} element={<CookiePolicyPage />} />
                 <Route path={"editions"} element={<EditionPage />} />
                 <Route path={"news/:id"} element={<NewsPage />} />
+                <Route path={"signup"} element={<SignupPage />} />
             </Route>
         </Routes>
       </Router>
