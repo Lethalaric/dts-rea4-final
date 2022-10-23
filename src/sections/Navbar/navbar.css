@@ -1,0 +1,38 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    background-color: black;
+}
+
+main {
+    background-color: black;
+    color: white;
+}
+
+footer {
+    background-color: black;
+    color: white;
+}
+
+#navbar-section-left {
+    display: flex;
+    align-items: center;
+}
+
+#navbar-section-left > * {
+    padding-right: 10px;
+    font-size: 20px;
+}
+
+#navbar-section-left-logo img {
+    width: 150px;
+    height: 100px;
+    background-image: none;
+}
+
+#navbar-section-right {
+    padding-right: 5rem;
+    align-self: center;
+    color: bisque;
+}
