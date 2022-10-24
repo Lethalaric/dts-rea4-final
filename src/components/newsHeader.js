@@ -1,11 +1,10 @@
 import React from 'react';
 import {Container, Link, Typography} from "@mui/material";
-import {useGetAllNewsQuery, useGetByUuidQuery} from "../stores/Features/apiSlice";
+import {useGetByUuidQuery} from "../stores/Features/apiSlice";
 import {useParams} from "react-router-dom";
 
 function NewsHeader(props) {
     const params = useParams();
-    console.log(params)
     const {
         data: news,
         isLoading,
