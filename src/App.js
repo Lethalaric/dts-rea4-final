@@ -21,6 +21,7 @@ import NewsPage from "./pages/newsPage";
 import SignupPage from "./pages/SignupPage";
 import SigninPage from "./pages/SigninPage";
 import SudahloginPage from "./pages/SudahloginPage";
+import SearchresultPage from "./pages/SearchresultPage";
 
 function App() {
 
@@ -41,6 +42,7 @@ function App() {
                 <Route path={"signup"} element={<SignupPage />} />
                 <Route path={"signin"} element={<SigninPage />} />
                 <Route path={"sudahlogin"} element={<SudahloginPage />} />
+                <Route path={"searchresult"} element={<SearchresultPage />} />
             </Route>
         </Routes>
   );

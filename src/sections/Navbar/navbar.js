@@ -48,11 +48,11 @@ function Navbar(props) {
         >
             <Toolbar>
                 <Box sx={{ flexGrow: 1 }} />
-                    <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-                        <IconButton sx={{mt: 1, color: 'bisque'}} size="large">
-                            <CloseIcon onClick={toggleDrawer(false)} />
-                        </IconButton>
-                    </Box>
+                <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+                    <IconButton sx={{mt: 1, color: 'bisque'}} size="large">
+                        <CloseIcon onClick={toggleDrawer(false)} />
+                    </IconButton>
+                </Box>
             </Toolbar>
             <Divider />
           <List>
@@ -108,8 +108,10 @@ function Navbar(props) {
                     <NavLink to={"channels"}>Channel</NavLink>
                 </div>
                 <div id={"navbar-section-right"}>
-                    <Button onClick={toggleDrawer(true)} sx={{ color: 'bisque' }} ><SearchRounded/></Button>
-                    <Button onClick={toggleDrawer(true)} sx={{ color: 'bisque' }} ><DehazeRounded/></Button>
+                    <Toolbar>
+                        <SearchBar />
+                        <Button onClick={toggleDrawer(true)} sx={{ color: 'bisque' }} ><DehazeRounded/></Button>
+                    </Toolbar>
                 </div>
             </nav>
             <main>
