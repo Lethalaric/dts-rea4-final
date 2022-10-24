@@ -25,6 +25,7 @@ import CloseIcon from "@mui/icons-material/Close";
 
 function Navbar(props) {
     const [stateOpen, setStateOpen] = useState(false);
+    const [search, setSearch] = useState(null);
 
     const toggleDrawer = (open) => (event) => {
         if (
@@ -109,7 +110,7 @@ function Navbar(props) {
                 </div>
                 <div id={"navbar-section-right"}>
                     <Toolbar>
-                        <SearchBar />
+                        <SearchBar search={search} setSearch={setSearch} />
                         <Button onClick={toggleDrawer(true)} sx={{ color: 'bisque' }} ><DehazeRounded/></Button>
                     </Toolbar>
                 </div>

@@ -1,4 +1,6 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom';
+
 import SearchIcon from '@mui/icons-material/Search';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
@@ -45,9 +47,23 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-function SearchBar(props) {
+function SearchBar({ search, setSearch }) {
+
+    const navigate = useNavigate();
+
+    function pressEnter(e) {
+        if (e.code == "Enter") {
+            console.log("search",search);
+            navigate("/searchresult");
+        }
+    }
+
     return (
-        <Search>
+        <Search 
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            onKeyDown={pressEnter}
+        >
             <SearchIconWrapper>
                 <SearchIcon />
             </SearchIconWrapper>
