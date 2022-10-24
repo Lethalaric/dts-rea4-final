@@ -5,6 +5,9 @@ import SearchIcon from '@mui/icons-material/Search';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 
+import { useDispatch } from 'react-redux';
+import { changeKeyword } from '../stores/Features/keyword/keywordSlice';
+
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
@@ -51,9 +54,12 @@ function SearchBar({ search, setSearch }) {
 
     const navigate = useNavigate();
 
+    const dispatch = useDispatch();
+
     function pressEnter(e) {
-        if (e.code == "Enter") {
-            console.log("search",search);
+        if (e.code === "Enter") {
+            dispatch(changeKeyword(search));
+            e.target.value = '';
             navigate("/searchresult");
         }
     }

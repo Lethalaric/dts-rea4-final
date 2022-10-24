@@ -1,11 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
-import React from "react";
-import {
-    Switch,
-    Route,
-    Link, Routes
-} from "react-router-dom";
+
+import React from 'react';
+import { Route, Routes } from "react-router-dom";
+
 import Navbar from "./sections/Navbar/navbar";
 import Homepage from "./pages/homepage";
 import AboutPage from "./pages/aboutPage";
@@ -25,7 +22,7 @@ import SearchresultPage from "./pages/SearchresultPage";
 
 function App() {
 
-  return (
+    return (
         <Routes>
             <Route element={<Navbar />} >
                 <Route index path={"/"} element={<Homepage />} />
