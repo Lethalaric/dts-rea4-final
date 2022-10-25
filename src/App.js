@@ -19,6 +19,7 @@ import SignupPage from "./pages/SignupPage";
 import SigninPage from "./pages/SigninPage";
 import SudahloginPage from "./pages/SudahloginPage";
 import SearchresultPage from "./pages/SearchresultPage";
+import StoryForm from "./pages/StoryForm";
 
 function App() {
 
@@ -40,6 +41,7 @@ function App() {
                 <Route path={"signin"} element={<SigninPage />} />
                 <Route path={"sudahlogin"} element={<SudahloginPage />} />
                 <Route path={"searchresult"} element={<SearchresultPage />} />
+                <Route path={"storyform"} element={<StoryForm />} />
             </Route>
         </Routes>
   );
