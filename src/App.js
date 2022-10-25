@@ -1,11 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
-import React from "react";
-import {
-    Switch,
-    Route,
-    Link, Routes
-} from "react-router-dom";
+
+import React from 'react';
+import { Route, Routes } from "react-router-dom";
+
 import Navbar from "./sections/Navbar/navbar";
 import Homepage from "./pages/homepage";
 import AboutPage from "./pages/aboutPage";
@@ -20,10 +17,12 @@ import EditionPage from "./pages/editionPage";
 import NewsPage from "./pages/newsPage";
 import SignupPage from "./pages/SignupPage";
 import SigninPage from "./pages/SigninPage";
+import SudahloginPage from "./pages/SudahloginPage";
+import SearchresultPage from "./pages/SearchresultPage";
 
 function App() {
 
-  return (
+    return (
         <Routes>
             <Route element={<Navbar />} >
                 <Route index path={"/"} element={<Homepage />} />
@@ -39,6 +38,8 @@ function App() {
                 <Route path={"news/:id"} element={<NewsPage />} />
                 <Route path={"signup"} element={<SignupPage />} />
                 <Route path={"signin"} element={<SigninPage />} />
+                <Route path={"sudahlogin"} element={<SudahloginPage />} />
+                <Route path={"searchresult"} element={<SearchresultPage />} />
             </Route>
         </Routes>
   );

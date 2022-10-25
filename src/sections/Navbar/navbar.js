@@ -1,9 +1,9 @@
+import "./navbar.css";
+
 import { useState } from 'react';
-import { Container } from '@mui/material';
-import {DehazeRounded, SearchRounded} from "@mui/icons-material";
+import { DehazeRounded } from "@mui/icons-material";
 import logo from '../../assets/logo.png';
-import {Link, NavLink, Outlet, useNavigate} from "react-router-dom";
-import navbar from "./navbar.css";
+import { NavLink, Outlet } from "react-router-dom";
 import Footer from "../footer";
 import SearchBar from "../../components/searchBar";
 // import RightDrawer from "./RightDrawer";
@@ -15,15 +15,13 @@ import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 
 function Navbar(props) {
+    const [search, setSearch] = useState('dika');
     const [stateOpen, setStateOpen] = useState(false);
 
     const toggleDrawer = (open) => (event) => {
@@ -48,11 +46,11 @@ function Navbar(props) {
         >
             <Toolbar>
                 <Box sx={{ flexGrow: 1 }} />
-                    <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-                        <IconButton sx={{mt: 1, color: 'bisque'}} size="large">
-                            <CloseIcon onClick={toggleDrawer(false)} />
-                        </IconButton>
-                    </Box>
+                <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+                    <IconButton sx={{mt: 1, color: 'bisque'}} size="large">
+                        <CloseIcon onClick={toggleDrawer(false)} />
+                    </IconButton>
+                </Box>
             </Toolbar>
             <Divider />
           <List>
@@ -108,8 +106,10 @@ function Navbar(props) {
                     <NavLink to={"channels"}>Channel</NavLink>
                 </div>
                 <div id={"navbar-section-right"}>
-                    <Button onClick={toggleDrawer(true)} sx={{ color: 'bisque' }} ><SearchRounded/></Button>
-                    <Button onClick={toggleDrawer(true)} sx={{ color: 'bisque' }} ><DehazeRounded/></Button>
+                    <Toolbar>
+                        <SearchBar search={search} setSearch={setSearch} />
+                        <Button onClick={toggleDrawer(true)} sx={{ color: 'bisque' }} ><DehazeRounded/></Button>
+                    </Toolbar>
                 </div>
             </nav>
             <main>

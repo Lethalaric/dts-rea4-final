@@ -9,24 +9,17 @@ export const AuthProvider = ({ children }) => {
 		const authenticated = localStorage.getItem("access_token");
 		console.log('authenticated', authenticated)
 
-		// if (authenticated && window.location.pathname != "/") {
-		// 	window.location.href = "/";
-		// } else {
-		// 	if (window.location.pathname != "/signup")
-		// 		window.location.href = "/signup";
-		// }
-
 		if (user || authenticated) {
 			console.log("user if", user);
 
-			if (window.location.pathname !== "/") {
-				window.location.replace("/");
+			if (window.location.pathname === "/signin" || window.location.pathname === "/signup") {
+				window.location.replace("/sudahlogin");
 			}
 		} else {
 			console.log("user else", user);
 
-			if (window.location.pathname === "/") {
-				window.location.replace("signup");
+			if (window.location.pathname === "/sudahlogin") {
+				window.location.replace("/signin");
 			}
 		}
 

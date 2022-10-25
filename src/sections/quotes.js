@@ -1,5 +1,6 @@
 import React from 'react';
 import Quote from "../components/quote";
+import {Container} from "@mui/material";
 
 function Quotes(props) {
     const data = [
@@ -13,14 +14,18 @@ function Quotes(props) {
         }
     ]
     return (
-        <div
-            style={{
+        <Container
+            sx={{
                 display: "flex",
-                justifyContent: "space-between"
+                justifyContent: "space-evenly"
             }}
         >
-            {data.map(value => <Quote name={value.name} quote={value.quote}/>)}
-        </div>
+            {data.map(value => {
+                return (
+                    <Quote name={value.name} quote={value.quote}/>
+                )
+            })}
+        </Container>
     );
 }
 

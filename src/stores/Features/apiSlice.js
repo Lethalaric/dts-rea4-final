@@ -8,11 +8,12 @@ export const ApiSlice = createApi({
         baseUrl: "https://api.thenewsapi.com/v1",
     }),
     endpoints: build => ({
-        getAllNews: build.query({
-            query: () => ({
+        getAllNewsByCategories: build.query({
+            query: ({categories, search}) => ({
                 url: "/news/all",
                 params: {
-                    categories: "business,tech",
+                    categories,
+                    search,
                     api_token: apiToken,
                     language: "en"
                 }
@@ -22,7 +23,8 @@ export const ApiSlice = createApi({
             query: id => ({
                 url: `/news/uuid/${id}`,
                 params: {
-                    api_token: apiToken
+                    api_token: apiToken,
+                    language: "en"
                 }
             })
         }),
@@ -30,7 +32,8 @@ export const ApiSlice = createApi({
             query: (uuid) => ({
                 url: `/news/similar/${uuid}`,
                 params: {
-                    api_token: apiToken
+                    api_token: apiToken,
+                    language: "en"
                 }
             })
         }),
@@ -47,4 +50,4 @@ export const ApiSlice = createApi({
     })
 })
 
-export const { useGetAllNewsQuery, useGetByUuidQuery, useGetSimilarNewsQuery, useGetTopNewsQuery } = ApiSlice;
+export const { useGetAllNewsByCategoriesQuery, useGetByUuidQuery, useGetSimilarNewsQuery, useGetTopNewsQuery } = ApiSlice;
