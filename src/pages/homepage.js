@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import HomepageHeader from "../components/homepageHeader";
 import NewsCard from "../components/newsCard";
 import ReframingTheWorld from "../sections/reframingTheWorld";
@@ -10,35 +10,32 @@ function Homepage(props) {
         <div>
             <HomepageHeader />
             <div>
-                <h4>This Week's Stories</h4>
-                <NewsCard/>
+                <h4>Tech Stories</h4>
+                <NewsCard categories={"tech"}/>
             </div>
             <div>
-                <h4>Most Popular Stories</h4>
-                <NewsCard/>
+                <h4>Politics Stories</h4>
+                <NewsCard categories={"politics"}/>
             </div>
             <div>
-                <h4>Natural World</h4>
-                <NewsCard/>
+                <h4>Business Stories</h4>
+                <NewsCard categories={"business"}/>
             </div>
             {/*<div>*/}
             {/*    <ReframingTheWorld />*/}
             {/*</div>*/}
             <div>
-                <h4>Places</h4>
-                <NewsCard/>
+                <h4>Entertainment Stories</h4>
+                <NewsCard categories={"entertainment"}/>
             </div>
             <div>
-                <h4>People</h4>
-                <NewsCard/>
+                <h4>Food Stories</h4>
+                <NewsCard categories={"food"}/>
             </div>
-            <div>
-                <Subscription />
-            </div>
+            <Subscription />
             <div>
                 <Quotes />
             </div>
-            Home Page
         </div>
     );
 }

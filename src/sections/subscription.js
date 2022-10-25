@@ -1,12 +1,15 @@
 import React from 'react';
-import {Button, TextField} from "@mui/material";
+import {Button, Container, TextField, Typography} from "@mui/material";
 
 function Subscription(props) {
     return (
-        <div
-            style={{
+        <Container
+            sx={{
+                marginTop: "1rem",
+                marginBottom: "1rem",
                 alignSelf: "center",
-                width: "1000px",
+                minWidth: "1000px",
+                minHeight: "150px",
                 backgroundColor: "#FF4669"
             }}
         >
@@ -16,22 +19,30 @@ function Subscription(props) {
                     justifyContent: "center"
                 }}
             >
-                <p><strong>REFRAME</strong> YOUR INBOX</p>
-                <p>Subscribe to our newsletter <br/>and never miss a story
-                </p>
+                <Typography
+                    variant={"h6"}
+                    sx={{
+                        marginRight: "5rem"
+                    }}
+                >
+                    <strong>REFRAME</strong> YOUR INBOX
+                </Typography>
+                <Typography>Subscribe to our newsletter <br/>and never miss a story
+                </Typography>
             </div>
-            <div
-                style={{
+            <Container
+                sx={{
                     display: "flex",
-                    justifyContent: "space-between"
+                    justifyContent: "space-between",
+                    paddingBottom: "1rem"
                 }}
             >
                 <TextField variant={"standard"} label={"First Name"}></TextField>
                 <TextField variant={"standard"} label={"Last Name"}></TextField>
                 <TextField variant={"standard"} label={"Enter Your Email"}></TextField>
                 <Button>Sign Up</Button>
-            </div>
-        </div>
+            </Container>
+        </Container>
     );
 }
 

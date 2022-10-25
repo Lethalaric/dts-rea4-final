@@ -9,12 +9,19 @@ function Quote({quote, name}) {
                 maxWidth: "450px",
             }}
         >
-            <Card variant={"outlined"}>
+            <Card
+                variant={"outlined"}
+                sx={{
+                    minHeight: "150px",
+                    maxHeight: "250px",
+                    backgroundColor: "black"
+                }}
+            >
                 <CardContent>
-                    <Typography variant={"h5"}>
+                    <Typography variant={"h5"} color={"white"}>
                         {quote}
                     </Typography>
-                    <Typography variant={"caption"}>--{name}</Typography>
+                    <Typography variant={"caption"} color={"white"}>--{name}</Typography>
                 </CardContent>
             </Card>
         </Box>
