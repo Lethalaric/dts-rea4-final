@@ -4,14 +4,14 @@ import {useGetAllNewsByCategoriesQuery} from "../stores/Features/apiSlice";
 import {CircularProgress, Typography} from "@mui/material";
 import {Link} from "react-router-dom";
 
-function NewsCard({categories}) {
+function NewsCard({categories, page}) {
     const {
         data: allNewsByCategories,
         isLoading,
         isSuccess,
         isError,
         error
-    } = useGetAllNewsByCategoriesQuery({categories: categories})
+    } = useGetAllNewsByCategoriesQuery({categories: categories, page: page})
 
     let content
 
