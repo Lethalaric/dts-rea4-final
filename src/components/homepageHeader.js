@@ -1,34 +1,35 @@
 import React from 'react';
 import {CircularProgress, Container, Typography} from "@mui/material";
 import image from '../assets/BNNW_AmericanBuffalo--11.jpg';
-import {useGetAllNewsQuery} from "../stores/Features/apiSlice";
 import {Link} from 'react-router-dom'
+import {useGetAllNewsByCategoriesQuery} from "../stores/Features/apiSlice";
+import Carousel from "react-material-ui-carousel";
 
 function HomepageHeader(props) {
     const {
-        data: allNews,
+        data: allNewsByCategories,
         isLoading,
         isSuccess,
         isError,
         error
-    } = useGetAllNewsQuery()
+    } = useGetAllNewsByCategoriesQuery({categories: "general, tech"})
 
     let content
 
     if (isLoading) {
         content = <CircularProgress text="Loading..." />
     } else if (isSuccess) {
-        // content = posts.map(post => <PostExcerpt key={post.id} post={post} />)
-        console.log(allNews.data[0])
-        content = container(allNews.data[0])
+        content = allNewsByCategories.data.map(news => {
+            return container(news)
+        })
     } else if (isError) {
         content = <div>{error.toString()}</div>
     }
 
     return (
-        <>
+        <Carousel autoPlay={true}>
             {content}
-        </>
+        </Carousel>
     );
 }
 
@@ -50,7 +51,7 @@ const container = (news) => {
                 maxWidth: "1000px"
             }}
         >
-            <Typography>TODAY's BEUTIFUL NEWS</Typography>
+            <Typography>TODAY's TOP NEWS</Typography>
             <Link to={`/news/${news.uuid}`}>
                 <Typography variant={"h2"}>{news.title}</Typography>
             </Link>
