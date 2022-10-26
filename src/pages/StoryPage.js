@@ -11,7 +11,7 @@ export default function StotyForn() {
       <Container maxWidth='xl'>
         <Box
           sx={{
-            pt: 8,
+            pt: 5,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'flex-start',

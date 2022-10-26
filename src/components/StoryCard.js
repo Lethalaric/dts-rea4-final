@@ -32,7 +32,7 @@ function StoryCard(props) {
             alignItems: 'flex-start',
           }}
         >
-        <Card fullWidth sx={{ backgroundColor : 'inherit', color: 'inherit'}}>
+        <Card fullWidth sx={{ backgroundColor : 'inherit', color: 'bisque'}}>
             <CardContent>
                 <Typography variant="h5" component="div">
                     {lquote} bdasf asfasfasfsa fsadf sadfsadfs adfsadfas dfasdf adffdsdf bdasf asfasfasfsa fsadf sadfsadfs adfsadfas dfasdf adffdsdf bdasf asfasfasfsa fsadf sadfsadfs adfsadfas dfasdf adffdsdf. {rquote}
