@@ -13,12 +13,12 @@ export const AuthProvider = ({ children }) => {
 			console.log("user if", user);
 
 			if (window.location.pathname === "/signin" || window.location.pathname === "/signup") {
-				window.location.replace("/sudahlogin");
+				window.location.replace("/storyform");
 			}
 		} else {
 			console.log("user else", user);
 
-			if (window.location.pathname === "/sudahlogin") {
+			if (window.location.pathname === "/storyform") {
 				window.location.replace("/signin");
 			}
 		}

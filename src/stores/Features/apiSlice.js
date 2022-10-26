@@ -9,11 +9,12 @@ export const ApiSlice = createApi({
     }),
     endpoints: build => ({
         getAllNewsByCategories: build.query({
-            query: ({categories, search}) => ({
+            query: ({categories, search, page}) => ({
                 url: "/news/all",
                 params: {
                     categories,
                     search,
+                    page,
                     api_token: apiToken,
                     language: "en"
                 }
