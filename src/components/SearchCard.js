@@ -1,10 +1,9 @@
 import React from 'react';
-import image from '../assets/BNNW_AmericanBuffalo--11.jpg';
 
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 
-function SimpleCard(props) {
+function SimpleCard({title, image}) {
     return (
         <Card>
             <div style={{ position: "relative" }}>
@@ -21,7 +20,7 @@ function SimpleCard(props) {
                     paddingLeft: "1rem"
                 }}> 
                     <mark style={{ backgroundColor: 'black',
-  color: 'white' }}>Some text fdflkjasdfla lkfj aslkdfjasf aslfjas flkjsaflkajsf fasklfdasl fdja;sldfkja ajfa;skfdl</mark>
+  color: 'white' }}>{title}</mark>
                 </div>
             </div>
         </Card>

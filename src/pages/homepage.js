@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import HomepageHeader from "../components/homepageHeader";
 import NewsCard from "../components/newsCard";
-import ReframingTheWorld from "../sections/reframingTheWorld";
 import Subscription from "../sections/subscription";
 import Quotes from "../sections/quotes";
 
@@ -21,9 +20,6 @@ function Homepage(props) {
                 <h4>Business Stories</h4>
                 <NewsCard categories={"business"}/>
             </div>
-            {/*<div>*/}
-            {/*    <ReframingTheWorld />*/}
-            {/*</div>*/}
             <div>
                 <h4>Entertainment Stories</h4>
                 <NewsCard categories={"entertainment"}/>
