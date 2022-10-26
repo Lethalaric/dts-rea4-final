@@ -14,10 +14,10 @@ function ChannelDetailPage(props) {
                     marginBottom: "0.5rem"
                 }}
             >
-                <Link to={"/channels"}>
-                    <Typography variant={"h4"}>{`< Channels`}</Typography>
+                <Link to={"/channels"} className={"RouterLink"} >
+                    <Typography variant="h4">{`Channel`}</Typography>
                 </Link>
-                <Typography variant={"h4"} sx={{marginLeft: "0.5rem"}}>{`${params.name.toUpperCase()}`}</Typography>
+                <Typography variant={"h4"} sx={{marginLeft: "0.5rem"}}> / {`${params.name.toUpperCase()}`}</Typography>
             </Container>
             <Container>
                 <NewsCard categories={params.name}/>
