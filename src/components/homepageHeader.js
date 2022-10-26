@@ -2,7 +2,7 @@ import React from 'react';
 import {CircularProgress, Container, Typography} from "@mui/material";
 import image from '../assets/BNNW_AmericanBuffalo--11.jpg';
 import {Link} from 'react-router-dom'
-import {useGetAllNewsByCategoriesQuery} from "../stores/Features/apiSlice";
+import {useGetAllNewsByCategoriesQuery} from "../stores/Features/api/apiSlice";
 import Carousel from "react-material-ui-carousel";
 
 function HomepageHeader(props) {

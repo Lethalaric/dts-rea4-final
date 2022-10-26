@@ -21,8 +21,8 @@ function Homepage(props) {
                 <NewsCard categories={"business"}/>
             </div>
             <div>
-                <h4>Entertainment Stories</h4>
-                <NewsCard categories={"entertainment"}/>
+                <h4>Travel Stories</h4>
+                <NewsCard categories={"travel"}/>
             </div>
             <div>
                 <h4>Food Stories</h4>

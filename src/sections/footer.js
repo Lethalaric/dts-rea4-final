@@ -49,30 +49,30 @@ function Footer(props) {
                             <Link to={`/about`} >About</Link>
                         </li>
                         <li>
-                            <Link to={"/submit-story"}>Submit a Story</Link>
+                            <Link to={"/storyform"}>Submit a Story</Link>
                         </li>
                         <li>
-                            <Link to={"/contact"} >Contact</Link>
-                        </li>
-                    </ul>
-                    <ul style={{
-                        listStyleType: "none"
-                    }}>
-                        <li>
-                            <Link to={"/become-contributor"}>Become a Contributor</Link>
-                        </li>
-                        <li>
-                            <Link to={"/term-of-use"}>Terms of Use</Link>
-                        </li>
-                        <li>
-                            <Link to={"/privacy-policy"}>Privacy Policy</Link>
+                            <Link to={"/"}>Contact</Link>
                         </li>
                     </ul>
                     <ul style={{
                         listStyleType: "none"
                     }}>
                         <li>
-                            <Link to={"/cookie-policy"}>Cookie Policy</Link>
+                            <Link to={"/"}>Become a Contributor</Link>
+                        </li>
+                        <li>
+                            <Link to={"/"}>Terms of Use</Link>
+                        </li>
+                        <li>
+                            <Link to={"/"}>Privacy Policy</Link>
+                        </li>
+                    </ul>
+                    <ul style={{
+                        listStyleType: "none"
+                    }}>
+                        <li>
+                            <Link to={"/"}>Cookie Policy</Link>
                         </li>
                         <li>
                             <Link to={"/signin"}>Sign In</Link>

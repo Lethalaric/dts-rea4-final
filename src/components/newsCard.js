@@ -1,6 +1,6 @@
 import React from 'react';
 import image from '../assets/BNNW_AmericanBuffalo--11.jpg';
-import {useGetAllNewsByCategoriesQuery} from "../stores/Features/apiSlice";
+import {useGetAllNewsByCategoriesQuery} from "../stores/Features/api/apiSlice";
 import {CircularProgress, Typography} from "@mui/material";
 import {Link} from "react-router-dom";
 

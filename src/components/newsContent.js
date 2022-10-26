@@ -1,6 +1,6 @@
 import React from 'react';
 import {useParams} from "react-router-dom";
-import {useGetByUuidQuery} from "../stores/Features/apiSlice";
+import {useGetByUuidQuery} from "../stores/Features/api/apiSlice";
 import {Link} from "@mui/material";
 
 function NewsContent(props) {

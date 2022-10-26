@@ -1,6 +1,6 @@
 import React from 'react';
 import {Container, Link, Typography} from "@mui/material";
-import {useGetByUuidQuery} from "../stores/Features/apiSlice";
+import {useGetByUuidQuery} from "../stores/Features/api/apiSlice";
 import {useParams} from "react-router-dom";
 
 function NewsHeader(props) {

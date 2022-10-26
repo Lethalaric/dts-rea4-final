@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link, useParams} from "react-router-dom";
-import {useGetByUuidQuery, useGetSimilarNewsQuery} from "../stores/Features/apiSlice";
+import {useGetByUuidQuery, useGetSimilarNewsQuery} from "../stores/Features/api/apiSlice";
 
 function SideNews(props) {
     const params = useParams();

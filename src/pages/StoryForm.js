@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {useEffect, useState} from "react";
 
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
@@ -7,13 +7,59 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import MenuItem from '@mui/material/MenuItem';
+import {v4 as uuidv4} from 'uuid';
+import {useDispatch, useSelector} from "react-redux";
+import {addStory, editStory} from "../stores/Features/story/storySlice";
+import {useLocation, useParams} from "react-router-dom";
 
-export default function StotyForn() {
+export default function StoryForm() {
+  const storyData = useSelector(state => state.story)
+  const params = useParams()
   const [email, setEmail] = useState("")
   const [name, setName] = useState("")
   const [location, setLocation] = useState("")
   const [phone, setPhone] = useState("")
   const [story, setStory] = useState("")
+  const [editedData, setEditedData] = useState(null)
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (params.id !== undefined) {
+      const data = storyData.find(s => s.uuid === params.id)
+      setEmail(data.email)
+      setName(data.name)
+      setLocation(data.location)
+      setPhone(data.phone)
+      setStory(data.story)
+      setEditedData(data)
+    }
+  }, [])
+
+  const onClick = () => {
+    let uuid = uuidv4()
+    const storyData = {
+      uuid: uuid,
+      email,
+      name,
+      location,
+      phone,
+      story
+    }
+    if (editedData !== null) {
+      storyData.uuid = editedData.uuid
+      dispatch(editStory(storyData))
+    } else {
+      dispatch(addStory(storyData))
+    }
+
+    alert("Story has been submitted. Please check story page")
+    setEmail("")
+    setName("")
+    setLocation("")
+    setPhone("")
+    setStory("")
+  }
 
   const stylingTextField = {
     "& .MuiInputBase-root": {
@@ -127,6 +173,7 @@ export default function StotyForn() {
                   mt: 3, mb: 2,
                   color: '#282C34', backgroundColor: 'bisque', borderColor: 'bisque'
                 }}
+                onClick={() => onClick()}
               >
                 Send
               </Button>
