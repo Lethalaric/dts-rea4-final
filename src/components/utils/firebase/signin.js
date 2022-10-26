@@ -7,7 +7,7 @@ export const signingIn = async (email, password) => {
 
     return userClient.user;
   } catch (error) {
-    console.log(error.message);
+    console.error(error.message);
     return error;
   }
 };

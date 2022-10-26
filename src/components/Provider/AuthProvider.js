@@ -7,17 +7,13 @@ export const AuthProvider = ({ children }) => {
 
 	useEffect(() => {
 		const authenticated = localStorage.getItem("access_token");
-		console.log('authenticated', authenticated)
+		// console.log('authenticated', authenticated)
 
 		if (user || authenticated) {
-			console.log("user if", user);
-
 			if (window.location.pathname === "/signin" || window.location.pathname === "/signup") {
 				window.location.replace("/storyform");
 			}
 		} else {
-			console.log("user else", user);
-
 			if (window.location.pathname === "/storyform") {
 				window.location.replace("/signin");
 			}
