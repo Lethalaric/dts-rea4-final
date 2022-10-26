@@ -4,25 +4,21 @@ import SideNews from "../components/sideNews";
 import NewsContent from "../components/newsContent";
 import NewsCard from "../components/newsCard";
 
+import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+
 function NewsPage(props) {
     return (
-        <div>
-            <div
-                style={{
-                    display: "flex"
-                }}
-            >
+        <Container maxWidth='xl'>
+            <Box sx={{ display: "flex" }}>
                 <NewsHeader />
                 <SideNews />
-            </div>
-            <div>
-                <NewsContent/>
-            </div>
-            <div>
-                <p>Related Categories</p>
-                <NewsCard />
-            </div>
-        </div>
+            </Box>
+            <NewsContent/>
+            <Typography variant="h4" sx={{ pt : 7 }}>Related Categories</Typography>
+            <NewsCard />
+        </Container>
     );
 }
 

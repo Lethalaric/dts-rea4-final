@@ -1,26 +1,26 @@
 import React from 'react';
 import {Link, useParams} from "react-router-dom";
 import {useGetByUuidQuery, useGetSimilarNewsQuery} from "../stores/Features/api/apiSlice";
+import Box from '@mui/material/Box';
 
 function SideNews(props) {
     const params = useParams();
 
     const {
         data: allSimilarNews,
-        isLoading,
+        // isLoading,
         isSuccess,
-        isError,
-        error
+        // isError,
+        // error
     } = useGetSimilarNewsQuery(params.id)
 
     if (isSuccess) {
-
-        console.log('similar news : ', allSimilarNews)
+        // console.log('similar news : ', allSimilarNews)
 
         const similarNews = allSimilarNews.data;
         return (
-            <div
-                style={{
+            <Box
+                sx={{
                     display: "flex",
                     flexDirection: "column"
                 }}
@@ -32,7 +32,7 @@ function SideNews(props) {
                         </Link>
                     )
                 })}
-            </div>
+            </Box>
         );
     }
 }
