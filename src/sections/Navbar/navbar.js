@@ -104,6 +104,7 @@ function Navbar(props) {
                     </div>
                     <NavLink to={"about"}>About us</NavLink>
                     <NavLink to={"channels"}>Channel</NavLink>
+                    <NavLink to={"storypage"}>Story</NavLink>
                 </div>
                 <div id={"navbar-section-right"}>
                     <Toolbar>
