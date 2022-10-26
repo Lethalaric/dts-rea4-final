@@ -1,19 +1,21 @@
-# DTS REA4 Final Project
 
-Ketentuan lengkap bisa dilihat di [Final Project Guidelines](https://docs.google.com/document/d/122KyWNQ4xxU4aFwWbM4vIfH7LM4AH2CZEZa3YsEHjCk). 
+# Beautiful News
 
-## Daftar pair
+## Video Aplikasi
 
-Tugas dikerjakan secara berpasangan, untuk daftar kelompok bisa dilihat pada masing-masing Classroom atau Discord Class.
+## Link live app
+Link live app : xxx
 
-## Fork and Clone
+## Deskripsi
 
-Mohon perwakilan dari pair bisa melakukan fork repo ini dan clone, untuk repositori yang di fork menggunakan penamaan:
+Aplikasi portal berita yang dikembangkan menggunakan ReactJS. Memanfaatkan Material UI untuk membangun tampilannya.
 
-`dts4[a/b/c]-[nomor pair]-final`
+Daftar fitur yang dikembangkan:
+- Halaman home : daftar berita
+- Halaman detail berita : menampilkan detil berita jika salah satu berita diklik
+- Halaman story : daftar story (diinput oleh pembaca setelah melakukan sign up / sign in)
+- Halaman sign up : membuat akun baru
+- Halaman sign in : login dengan akun yang sudah ada
+- Halaman form story : form untuk menambahkan data story
 
-Contoh: `dts4a-01-final`
-
-## Branching, commit
-
-Branch dapat sesuai dengan kebutuhan dan kesepakatan bersama dalam pair, namun hasil akhirnya harus di merge ke branch `main` dan di push ke Github. Pastikan hasil akhir kode sudah ter-push!
+API yang digunakan: https://api.thenewsapi.com/
