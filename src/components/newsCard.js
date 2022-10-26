@@ -39,30 +39,30 @@ function NewsCard({categories, page, search}) {
 
 const contentNews = (news) => {
     return (
-        <div
-            style={{
-                backgroundImage: `url(${news.image_url})`,
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-                height: "400px",
-                width: "600px",
-                position: "relative",
-                marginRight: "1rem"
-            }}
-        >
+        <Link to={`/news/${news.uuid}`}>
             <div
                 style={{
-                    backgroundColor: "black",
-                    position: "absolute",
-                    bottom: "10px",
-                    paddingLeft: "1rem"
+                    backgroundImage: `url(${news.image_url})`,
+                    backgroundRepeat: "no-repeat",
+                    backgroundSize: "cover",
+                    height: "400px",
+                    width: "600px",
+                    position: "relative",
+                    marginRight: "1rem"
                 }}
             >
-                <Link to={`/news/${news.uuid}`}>
+                <div
+                    style={{
+                        backgroundColor: "black",
+                        position: "absolute",
+                        bottom: "10px",
+                        paddingLeft: "1rem"
+                    }}
+                >
                     <Typography >{news.title}</Typography>
-                </Link>
+                </div>
             </div>
-        </div>
+        </Link>
     )
 }
 
