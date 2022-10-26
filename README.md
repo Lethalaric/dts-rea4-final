@@ -2,6 +2,7 @@
 # Beautiful News
 
 ## Video Aplikasi
+![Alt Text](ezgif.com-gif-maker.gif)
 
 ## Link live app
 Link live app : https://dts-rea4c-20-final.web.app
