@@ -51,7 +51,6 @@ function NewsHeader(props) {
                             )
                         })}
                     </div>
-                    <button>Play Button</button>
                 </div>
             </Container>
         );

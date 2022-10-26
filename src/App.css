@@ -13,6 +13,15 @@
   }
 }
 
+.RouterLink:hover {
+  text-decoration: underline;
+}
+
+.RouterLink {
+  text-decoration: none;
+  color: bisque;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

@@ -129,9 +129,9 @@ function Navbar(props) {
                             },
                         }}
                     >
-                        <Link href={"about"} underline="hover" color="bisque">About us</Link>
-                        <Link href={"channels"} underline="hover" color="bisque">Channel</Link>
-                        <Link href={"storypage"} underline="hover" color="bisque">Story</Link>
+                        <NavLink className={"RouterLink"} to={"about"}>About us</NavLink>
+                        <NavLink className={"RouterLink"} to={"channels"}>Channel</NavLink>
+                        <NavLink className={"RouterLink"} to={"storypage"}>Story</NavLink>
                     </Box>
                 </div>
                 <div id={"navbar-section-right"}>

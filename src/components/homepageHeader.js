@@ -4,7 +4,7 @@ import { useGetAllNewsByCategoriesQuery } from "../stores/Features/api/apiSlice"
 import Carousel from "react-material-ui-carousel";
 
 import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
+import {Link} from "react-router-dom";
 
 function HomepageHeader(props) {
     const {
@@ -66,7 +66,7 @@ const container = (news) => {
                         fontWeight: 'bold',
                     }}
                 >
-                    <Link href={`/news/${news.uuid}`} underline="hover" color="bisque">
+                    <Link className={"RouterLink"} to={`/news/${news.uuid}`}>
                         {news.title}
                     </Link>
                 </Box>

@@ -3,7 +3,7 @@ import { useGetAllNewsByCategoriesQuery } from "../stores/Features/api/apiSlice"
 import { CircularProgress } from "@mui/material";
 
 import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
+import {Link} from "react-router-dom";
 
 function NewsCard({categories, page, search}) {
     const {
@@ -41,30 +41,30 @@ function NewsCard({categories, page, search}) {
 
 const contentNews = (news) => {
     return (
-        <Link href={`/news/${news.uuid}`} underline="hover" color="bisque">
+        <Box
+            sx={{
+                backgroundImage: `url(${news.image_url})`,
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
+                height: "400px",
+                width: "600px",
+                position: "relative",
+                marginRight: "1rem"
+            }}
+        >
             <Box
                 sx={{
-                    backgroundImage: `url(${news.image_url})`,
-                    backgroundRepeat: "no-repeat",
-                    backgroundSize: "cover",
-                    height: "400px",
-                    width: "600px",
-                    position: "relative",
-                    marginRight: "1rem"
+                    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                    p : '10px',
+                    position: "absolute",
+                    bottom: 0
                 }}
             >
-                <Box
-                    sx={{
-                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
-                        p : '10px',
-                        position: "absolute",
-                        bottom: 0
-                    }}
-                >
-                       {news.title}
-                </Box>
+                <Link className={"RouterLink"} to={`/news/${news.uuid}`}>
+                   {news.title}
+                </Link>
             </Box>
-        </Link>
+        </Box>
     )
 }
 
