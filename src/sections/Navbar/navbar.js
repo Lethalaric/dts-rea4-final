@@ -3,7 +3,7 @@ import "./navbar.css";
 import { useState } from 'react';
 import { DehazeRounded } from "@mui/icons-material";
 import logo from '../../assets/logo.png';
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import Footer from "../footer";
 import SearchBar from "../../components/searchBar";
 // import RightDrawer from "./RightDrawer";
@@ -21,6 +21,8 @@ import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 
 function Navbar(props) {
+    const navigate = useNavigate();
+    const authenticated = localStorage.getItem("access_token");
     const [search, setSearch] = useState('dika');
     const [stateOpen, setStateOpen] = useState(false);
 
@@ -35,6 +37,11 @@ function Navbar(props) {
 
         // setState({ ...state, [anchor]: open });
         setStateOpen(open);
+    };
+
+    const logout = () => {
+        localStorage.removeItem("access_token");
+        navigate("/");
     };
 
     const list = () => (
@@ -74,18 +81,26 @@ function Navbar(props) {
           </List>
           <Divider />
           <Toolbar>
-            <Button 
-                variant='outlined' 
-                onClick={toggleDrawer(true)} 
-                sx={{ color: 'white', backgroundColor: '#282C34', borderColor: 'bisque' }}
-                href={'/signin'}
-            >Sign in</Button>
-            <Button 
-                variant='outlined' 
-                onClick={toggleDrawer(true)} 
-                sx={{ mx : '10px', color: '#282C34', backgroundColor: 'bisque', borderColor: 'bisque' }}
-                href={'/signup'}
-            >Create account</Button>
+            { authenticated ? 
+                <Button 
+                    variant='outlined' 
+                    onClick={logout} 
+                    sx={{ mx : '10px', color: '#282C34', backgroundColor: 'bisque', borderColor: 'bisque' }}
+                >Logout</Button>
+                :
+                <><Button 
+                    variant='outlined' 
+                    onClick={toggleDrawer(true)} 
+                    sx={{ color: 'white', backgroundColor: '#282C34', borderColor: 'bisque' }}
+                    href={'/signin'}
+                >Sign in</Button>
+                <Button 
+                    variant='outlined' 
+                    onClick={toggleDrawer(true)} 
+                    sx={{ mx : '10px', color: '#282C34', backgroundColor: 'bisque', borderColor: 'bisque' }}
+                    href={'/signup'}
+                >Create account</Button></>
+            }
           </Toolbar>
         </Box>
       );
