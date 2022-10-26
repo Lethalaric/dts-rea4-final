@@ -12,7 +12,7 @@ import sportImage from '../assets/Shutterstock_Lisa_Kolbasa.png'
 import CategoryCard from "../components/categoryCard";
 
 import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
+import {Link} from "react-router-dom";
 
 function ChannelsPage(props) {
     const categories = [
@@ -78,8 +78,8 @@ function ChannelsPage(props) {
                                 },
                             }}
                         >
-                            <Link to={`/channel/${value.title.toLowerCase()}`} underline="hover" color="bisque">
-                                <CategoryCard title={value.title} image={value.image} />
+                            <Link className={"RouterLink"} to={`/channel/${value.title.toLowerCase()}`} >
+                               <CategoryCard title={value.title} image={value.image} />
                             </Link>
                         </Box>
                     )
