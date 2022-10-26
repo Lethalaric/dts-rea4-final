@@ -14,9 +14,10 @@ import CookiePolicyPage from "./pages/cookiePolicyPage";
 import NewsPage from "./pages/newsPage";
 import SignupPage from "./pages/SignupPage";
 import SigninPage from "./pages/SigninPage";
-import SudahloginPage from "./pages/SudahloginPage";
 import SearchresultPage from "./pages/SearchresultPage";
 import ChannelDetailPage from "./pages/channelDetailPage";
+import StoryForm from "./pages/StoryForm";
+import StoryPage from "./pages/StoryPage";
 
 function App() {
 
@@ -34,8 +35,9 @@ function App() {
                 <Route path={"news/:id"} element={<NewsPage />} />
                 <Route path={"signup"} element={<SignupPage />} />
                 <Route path={"signin"} element={<SigninPage />} />
-                <Route path={"sudahlogin"} element={<SudahloginPage />} />
                 <Route path={"searchresult"} element={<SearchresultPage />} />
+                <Route path={"storyform"} element={<StoryForm />} />
+                <Route path={"storypage"} element={<StoryPage />} />
             </Route>
         </Routes>
   );

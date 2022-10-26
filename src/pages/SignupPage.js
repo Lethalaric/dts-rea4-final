@@ -1,31 +1,15 @@
 import { useContext, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from "../components/Provider/AuthProvider";
-import { signingUp } from "../components/utils/firebase/signup";
+import { signingUp } from "../components/utils/firebase/signup";   
 
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 
-export default function SignupPage() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
-
+export default function SigninPage() {
   const { setUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -44,65 +28,96 @@ export default function SignupPage() {
     }
   };
 
+
   return (
-      <Container component="main" maxWidth="xs">
+      <Container maxWidth='xl'>
         <Box
           sx={{
-            marginTop: 8,
+            pt: 8,
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'center',
+            alignItems: 'flex-start'
           }}
         >
-          <Typography component="h1" variant="h5">
+          <Typography component="h1" variant="h3">
             Create New Account
           </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
-            <Grid container spacing={2}>
-              <Grid item xs={12}>
-                <TextField
-                  autoComplete="given-name"
-                  name="fullName"
-                  required
-                  fullWidth
-                  id="fullName"
-                  label="Full Name"
-                  autoFocus
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  autoComplete="given-name"
-                  required
-                  fullWidth
-                  label="Email"
-                  autoFocus
-        value={email} 
-        onChange={(e) => setEmail(e.target.value)}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  autoComplete="given-name"
-                  required
-                  fullWidth
-                  label="Password"
-                  autoFocus
-        value={password} 
-        onChange={(e) => setPassword(e.target.value)}
-        type="password"
-                />
-              </Grid>
-            </Grid>
-            <Button
-              type="submit"
+          <Box component="form" noValidate sx={{ mt: 1 }}>
+            <TextField
+              margin="normal"
+              required
               fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-              onClick={signUp}
-            >
-              Create new account
-            </Button>
+              label="Email Address"
+              autoFocus
+              value={email} 
+              onChange={(e) => setEmail(e.target.value)}
+              sx={{
+                "& .MuiInputBase-root": {
+                  color: 'white'
+                },
+                "& .MuiFormLabel-root": {
+                  color: 'white'
+                },
+                "& .MuiFormLabel-root.Mui-focused": {
+                  color: 'white'
+                },
+                "& .MuiOutlinedInput-root.Mui-focused": {
+                  "& > fieldset": {
+                    borderColor: "white"
+                  }
+                },
+                "& .MuiOutlinedInput-root:hover": {
+                  "& > fieldset": {
+                    borderColor: "white"
+                  }
+                },
+                backgroundColor: '#282C34', 
+              }}
+            />
+            <TextField
+              margin="normal"
+              label="Password"
+              required
+              fullWidth
+              type="password"
+              value={password} 
+              onChange={(e) => setPassword(e.target.value)}
+              sx={{
+                "& .MuiInputBase-root": {
+                  color: 'white'
+                },
+                "& .MuiFormLabel-root": {
+                  color: 'white'
+                },
+                "& .MuiFormLabel-root.Mui-focused": {
+                  color: 'white'
+                },
+                "& .MuiOutlinedInput-root.Mui-focused": {
+                  "& > fieldset": {
+                    borderColor: "white"
+                  }
+                },
+                "& .MuiOutlinedInput-root:hover": {
+                  "& > fieldset": {
+                    borderColor: "white"
+                  }
+                },
+                backgroundColor: '#282C34', 
+              }}
+            />
+            <Box sx={{ alignItems: 'flex-start' }}>
+              <Button
+                variant="contained"
+                sx={{ 
+                  mt: 3, mb: 2,
+                  color: '#282C34', backgroundColor: 'bisque', borderColor: 'bisque'
+                }}
+                onClick={signUp}
+
+              >
+                Create new account
+              </Button>
+            </Box>
           </Box>
         </Box>
       </Container>

@@ -2,16 +2,9 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../components/Provider/AuthProvider";
 import { signingIn } from "../components/utils/firebase/signin";   
 
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 
@@ -119,14 +112,13 @@ export default function SigninPage() {
                   color: '#282C34', backgroundColor: 'bisque', borderColor: 'bisque'
                 }}
                 onClick={signIn}
-
               >
                 Login
               </Button>
             </Box>
-            <Link href="/signup" variant="body" sx={{ color: 'white'}}>
+            <Typography variant="body" sx={{ color: 'white'}}>
               Don’t have an account yet?
-            </Link>
+            </Typography>
             <Box sx={{ alignItems: 'flex-start' }}>
               <Button
                 variant="outlined"
@@ -134,6 +126,7 @@ export default function SigninPage() {
                   mt: 3, mb: 2,
                   color: 'white', borderColor: 'bisque'
                 }}
+                href="/signup"
               >
                 Create Account
               </Button>
