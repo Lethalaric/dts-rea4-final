@@ -6,9 +6,6 @@ import Carousel from "react-material-ui-carousel";
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 
-
-const preventDefault = (event) => event.preventDefault();
-
 function HomepageHeader(props) {
     const {
         data: allNewsByCategories,
@@ -66,11 +63,11 @@ const container = (news) => {
                         '& > :not(style) + :not(style)': {
                             ml: 2,
                         },
+                        fontWeight: 'bold',
                     }}
-                    onClick={preventDefault}
                 >
                     <Link href={`/news/${news.uuid}`} underline="hover" color="bisque">
-                        <Box sx={{ fontWeight: 'bold' }}>{news.title}</Box>
+                        {news.title}
                     </Link>
                 </Box>
                 <Box sx={{ display : "flex" }}>

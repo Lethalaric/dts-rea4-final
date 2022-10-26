@@ -1,6 +1,23 @@
 import React from 'react';
 import {Box, Card, CardContent, Typography} from "@mui/material";
 
+const lquote = (
+  <Box
+    component="span"
+    sx={{ display: 'inline-block', transform: 'scale(1.5)' }}
+  >
+    &ldquo;
+  </Box>
+);
+const rquote = (
+  <Box
+    component="span"
+    sx={{ display: 'inline-block', transform: 'scale(1.5)' }}
+  >
+    &rdquo;
+  </Box>
+);
+
 function Quote({quote, name}) {
     return (
         <Box
@@ -19,9 +36,9 @@ function Quote({quote, name}) {
             >
                 <CardContent>
                     <Typography variant={"h5"} color={"white"}>
-                        {quote}
+                        {lquote} {quote} {rquote}
                     </Typography>
-                    <Typography variant={"caption"} color={"white"}>--{name}</Typography>
+                    <Typography variant={"caption"} color={"white"}> - {name} -</Typography>
                 </CardContent>
             </Card>
         </Box>
