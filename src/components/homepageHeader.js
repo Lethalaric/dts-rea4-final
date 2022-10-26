@@ -54,7 +54,8 @@ const container = (news) => {
                 sx={{
                     width: 3/4,
                     backgroundColor : 'rgba(0, 0, 0, 0.8)',
-                    alpha : 0.5
+                    alpha : 0.5,
+                    p : '20px',
                 }}
             >
                 <Typography variant="h4">TODAY's TOP NEWS</Typography>
