@@ -4,7 +4,7 @@
 ## Video Aplikasi
 
 ## Link live app
-Link live app : xxx
+Link live app : https://dts-rea4c-20-final.web.app
 
 ## Deskripsi
 
