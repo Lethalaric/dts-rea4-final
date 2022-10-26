@@ -20,6 +20,8 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 
+import Link from '@mui/material/Link';
+
 function Navbar(props) {
     const navigate = useNavigate();
     const authenticated = localStorage.getItem("access_token");
@@ -117,9 +119,20 @@ function Navbar(props) {
                             />
                         </NavLink>
                     </div>
-                    <NavLink to={"about"}>About us</NavLink>
-                    <NavLink to={"channels"}>Channel</NavLink>
-                    <NavLink to={"storypage"}>Story</NavLink>
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            flexWrap: 'wrap',
+                            typography: 'h2',
+                            '& > :not(style) + :not(style)': {
+                                ml: 2,
+                            },
+                        }}
+                    >
+                        <Link href={"about"} underline="hover" color="bisque">About us</Link>
+                        <Link href={"channels"} underline="hover" color="bisque">Channel</Link>
+                        <Link href={"storypage"} underline="hover" color="bisque">Story</Link>
+                    </Box>
                 </div>
                 <div id={"navbar-section-right"}>
                     <Toolbar>
