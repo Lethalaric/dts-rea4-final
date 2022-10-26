@@ -1,10 +1,7 @@
-import { useContext, useState } from "react";
-import { AuthContext } from "../components/Provider/AuthProvider";
-import { signingIn } from "../components/utils/firebase/signin";   
+import { useState } from "react";
 
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -12,10 +9,11 @@ import Container from '@mui/material/Container';
 import MenuItem from '@mui/material/MenuItem';
 
 export default function StotyForn() {
-  const { setUser } = useContext(AuthContext);
-
   const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
+  const [name, setName] = useState("")
+  const [location, setLocation] = useState("")
+  const [phone, setPhone] = useState("")
+  const [story, setStory] = useState("")
 
   const stylingTextField = {
     "& .MuiInputBase-root": {
@@ -40,17 +38,6 @@ export default function StotyForn() {
     backgroundColor: '#282C34', 
   };
 
-  const signIn = async () => {
-    // navigate('/')
-    const signedIn = await signingIn(email, password);
-
-    if (!signedIn.message) {
-      setUser(signedIn.accessToken)
-    } else {
-      console.log("error signIn", signedIn.message)
-    }
-  };
-
   return (
       <Container maxWidth='xl'>
         <Box
@@ -58,7 +45,7 @@ export default function StotyForn() {
             pt: 8,
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'flex-start'
+            alignItems: 'flex-start',
           }}
         >
           <Typography component="h1" variant="h3">
@@ -76,6 +63,8 @@ export default function StotyForn() {
                   fullWidth
                   label="My name is"
                   autoFocus
+                  value={name} 
+                  onChange={(e) => setName(e.target.value)}
                   sx={stylingTextField}
                 />
               </Grid>
@@ -85,6 +74,8 @@ export default function StotyForn() {
                   fullWidth
                   label="Email"
                   autoComplete="family-name"
+                  value={email} 
+                  onChange={(e) => setEmail(e.target.value)}
                   sx={stylingTextField}
                 />
               </Grid>
@@ -95,6 +86,8 @@ export default function StotyForn() {
                   fullWidth
                   label="Location"
                   autoComplete="family-name"
+                  value={location} 
+                  onChange={(e) => setLocation(e.target.value)}
                   sx={stylingTextField}
                 >
                     <MenuItem value="">
@@ -109,6 +102,8 @@ export default function StotyForn() {
                 <TextField
                   fullWidth
                   label="Your phone number (optional)"
+                  value={phone} 
+                  onChange={(e) => setPhone(e.target.value)}
                   sx={stylingTextField}
                 />
               </Grid>
@@ -119,6 +114,8 @@ export default function StotyForn() {
                   fullWidth
                   rows={4}
                   required
+                  value={story} 
+                  onChange={(e) => setStory(e.target.value)}
                   sx={stylingTextField}
                 />
               </Grid>
@@ -130,8 +127,6 @@ export default function StotyForn() {
                   mt: 3, mb: 2,
                   color: '#282C34', backgroundColor: 'bisque', borderColor: 'bisque'
                 }}
-                onClick={signIn}
-
               >
                 Send
               </Button>
