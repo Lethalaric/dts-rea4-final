@@ -1,7 +1,8 @@
 import React from 'react';
-import image from '../assets/BNNW_AmericanBuffalo--11.jpg';
-import {useGetAllNewsByCategoriesQuery} from "../stores/Features/apiSlice";
-import {CircularProgress, Typography} from "@mui/material";
+import { useGetAllNewsByCategoriesQuery } from "../stores/Features/api/apiSlice";
+import { CircularProgress } from "@mui/material";
+
+import Box from '@mui/material/Box';
 import {Link} from "react-router-dom";
 
 function NewsCard({categories, page, search}) {
@@ -26,21 +27,22 @@ function NewsCard({categories, page, search}) {
     }
 
     return (
-        <div
-            style={{
+        <Box
+            sx={{
                 display: "flex",
-                justifyContent: "space-between"
+                justifyContent: "space-between",
+                pt : 3
             }}
         >
             {content}
-        </div>
+        </Box>
     );
 }
 
 const contentNews = (news) => {
     return (
-        <div
-            style={{
+        <Box
+            sx={{
                 backgroundImage: `url(${news.image_url})`,
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "cover",
@@ -50,19 +52,19 @@ const contentNews = (news) => {
                 marginRight: "1rem"
             }}
         >
-            <div
-                style={{
-                    backgroundColor: "black",
+            <Box
+                sx={{
+                    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                    p : '10px',
                     position: "absolute",
-                    bottom: "10px",
-                    paddingLeft: "1rem"
+                    bottom: 0
                 }}
             >
-                <Link to={`/news/${news.uuid}`}>
-                    <Typography >{news.title}</Typography>
+                <Link className={"RouterLink"} to={`/news/${news.uuid}`}>
+                   {news.title}
                 </Link>
-            </div>
-        </div>
+            </Box>
+        </Box>
     )
 }
 

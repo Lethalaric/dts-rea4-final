@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link, useParams} from "react-router-dom";
 import {Container, Typography} from "@mui/material";
-import {useGetAllNewsByCategoriesQuery, useGetByUuidQuery} from "../stores/Features/apiSlice";
+import {useGetAllNewsByCategoriesQuery, useGetByUuidQuery} from "../stores/Features/api/apiSlice";
 import NewsCard from "../components/newsCard";
 
 function ChannelDetailPage(props) {

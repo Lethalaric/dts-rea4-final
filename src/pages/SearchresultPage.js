@@ -6,11 +6,9 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 
 import SearchCard from "../components/SearchCard";
-import {useGetAllNewsByCategoriesQuery} from "../stores/Features/apiSlice";
+import {useGetAllNewsByCategoriesQuery} from "../stores/Features/api/apiSlice";
 import {Button, CircularProgress} from "@mui/material";
 import {useEffect, useState} from "react";
-
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 export default function SearchresultPage() {
     const keyword = useSelector(state => state.keyword.keyword);

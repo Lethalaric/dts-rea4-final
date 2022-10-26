@@ -1,8 +1,8 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const apiToken = "NehwvOLmWooi9dd7LuJP3FvChJIOAjPETIAzrkXL"
+const apiToken = "k4xmN6ZkE07YQqCAOezfrPs4Kenm9iXp49xGtNld"
 
-export const ApiSlice = createApi({
+export const apiSlice = createApi({
     reducerPath: "api",
     baseQuery: fetchBaseQuery({
         baseUrl: "https://api.thenewsapi.com/v1",
@@ -51,4 +51,4 @@ export const ApiSlice = createApi({
     })
 })
 
-export const { useGetAllNewsByCategoriesQuery, useGetByUuidQuery, useGetSimilarNewsQuery, useGetTopNewsQuery } = ApiSlice;
+export const { useGetAllNewsByCategoriesQuery, useGetByUuidQuery, useGetSimilarNewsQuery, useGetTopNewsQuery } = apiSlice;

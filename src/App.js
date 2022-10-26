@@ -7,10 +7,6 @@ import Navbar from "./sections/Navbar/navbar";
 import Homepage from "./pages/homepage";
 import AboutPage from "./pages/aboutPage";
 import ChannelsPage from "./pages/channelsPage";
-import SubmitAStoryPage from "./pages/submitAStoryPage";
-import PrivacyPolicyPage from "./pages/privacyPolicyPage";
-import TermsOfUsePage from "./pages/termsOfUsePage";
-import CookiePolicyPage from "./pages/cookiePolicyPage";
 import NewsPage from "./pages/newsPage";
 import SignupPage from "./pages/SignupPage";
 import SigninPage from "./pages/SigninPage";
@@ -28,15 +24,12 @@ function App() {
                 <Route path={"about"} element={<AboutPage />} />
                 <Route path={"channels"} element={<ChannelsPage />} />
                 <Route path={"channel/:name"} element={<ChannelDetailPage />} />
-                <Route path={"submit-story"} element={<SubmitAStoryPage />} />
-                <Route path={"privacy-policy"} element={<PrivacyPolicyPage />} />
-                <Route path={"term-of-use"} element={<TermsOfUsePage />} />
-                <Route path={"cookie-policy"} element={<CookiePolicyPage />} />
                 <Route path={"news/:id"} element={<NewsPage />} />
                 <Route path={"signup"} element={<SignupPage />} />
                 <Route path={"signin"} element={<SigninPage />} />
                 <Route path={"searchresult"} element={<SearchresultPage />} />
                 <Route path={"storyform"} element={<StoryForm />} />
+                <Route path={"storyform/:id"} element={<StoryForm />} />
                 <Route path={"storypage"} element={<StoryPage />} />
             </Route>
         </Routes>

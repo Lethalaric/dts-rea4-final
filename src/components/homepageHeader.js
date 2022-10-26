@@ -1,9 +1,10 @@
 import React from 'react';
-import {CircularProgress, Container, Typography} from "@mui/material";
-import image from '../assets/BNNW_AmericanBuffalo--11.jpg';
-import {Link} from 'react-router-dom'
-import {useGetAllNewsByCategoriesQuery} from "../stores/Features/apiSlice";
+import { CircularProgress, Container, Typography } from "@mui/material";
+import { useGetAllNewsByCategoriesQuery } from "../stores/Features/api/apiSlice";
 import Carousel from "react-material-ui-carousel";
+
+import Box from '@mui/material/Box';
+import {Link} from "react-router-dom";
 
 function HomepageHeader(props) {
     const {
@@ -34,63 +35,60 @@ function HomepageHeader(props) {
 }
 
 const container = (news) => {
-    return <Container
-        maxWidth={false}
-        sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            height: "900px",
-            alignItems: "center",
-            backgroundImage: `url(${news.image_url})`,
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover"
-        }}
-    >
-        <div
-            style={{
-                maxWidth: "1000px"
+    return (
+        <Container
+            maxWidth={false}
+            sx={{
+                display: "flex",
+                height: "600px",
+                alignItems: "flex-end",
+                backgroundImage: `url(${news.image_url})`,
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
             }}
         >
-            <Typography>TODAY's TOP NEWS</Typography>
-            <Link to={`/news/${news.uuid}`}>
-                <Typography variant={"h2"}>{news.title}</Typography>
-            </Link>
-            <div
-                style={{
-                    display: "flex"
+            <Box
+                sx={{
+                    width: 3/4,
+                    backgroundColor : 'rgba(0, 0, 0, 0.8)',
+                    p : '20px',
                 }}
             >
-                {news.categories.map(value => {
-                    console.log(value)
-                    return (
-                        <Typography
-                            sx={{
-                                textTransform: "uppercase",
-                                marginRight: "0.5rem"
-                            }}
-                        >
-                            {value}
-                        </Typography>
-                    )
-                })}
-                {/*<Typography*/}
-                {/*    sx={{*/}
-                {/*        textTransform: "uppercase"*/}
-                {/*    }}*/}
-                {/*>*/}
-                {/*    {news.categories[0]}*/}
-                {/*</Typography>*/}
-            </div>
-            <button>Play Button</button>
-        </div>
-        <div
-            style={{
-                alignSelf: "end"
-            }}
-        >
-            <button>submit your story</button>
-        </div>
-    </Container>
+                <Typography variant="h4">TODAY's TOP NEWS</Typography>
+                <Box
+                    sx={{
+                        display: 'flex',
+                        flexWrap: 'wrap',
+                        typography: 'h2',
+                        '& > :not(style) + :not(style)': {
+                            ml: 2,
+                        },
+                        fontWeight: 'bold',
+                    }}
+                >
+                    <Link className={"RouterLink"} to={`/news/${news.uuid}`}>
+                        {news.title}
+                    </Link>
+                </Box>
+                <Box sx={{ display : "flex" }}>
+                    {news.categories.map(value => {
+                        return (
+                            <Typography
+                                variant="caption"
+                                sx={{
+                                    textTransform: "uppercase",
+                                    marginRight: "0.5rem",
+                                    color : '#e2e8f0'
+                                }}
+                            >
+                                {value}
+                            </Typography>
+                        )
+                    })}
+                </Box>
+            </Box>
+        </Container>
+    )
 }
 
 export default HomepageHeader;

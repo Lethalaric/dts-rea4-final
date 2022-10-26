@@ -5,8 +5,10 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 
 import StoryCard from "../components/StoryCard";
+import {useSelector} from "react-redux";
 
-export default function StotyForn() {
+export default function StoryPage() {
+    const storyDatas = useSelector(state => state.story)
   return (
       <Container maxWidth='xl'>
         <Box
@@ -19,9 +21,8 @@ export default function StotyForn() {
         >
         <Typography component="h1" variant="h3">
             Story Page
-          </Typography>
-          <StoryCard />
-          <StoryCard />
+        </Typography>
+        {(storyDatas.length === 0) ? <Typography>No story available</Typography> : storyDatas.map(story => <StoryCard story={story} />)}
       </Box>
       </Container>
   );
