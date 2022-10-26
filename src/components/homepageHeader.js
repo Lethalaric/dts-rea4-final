@@ -43,11 +43,11 @@ const container = (news) => {
             maxWidth={false}
             sx={{
                 display: "flex",
-                height: "900px",
-                alignItems: "center",
+                height: "600px",
+                alignItems: "flex-end",
                 backgroundImage: `url(${news.image_url})`,
                 backgroundRepeat: "no-repeat",
-                backgroundSize: "cover"
+                backgroundSize: "cover",
             }}
         >
             <Box
