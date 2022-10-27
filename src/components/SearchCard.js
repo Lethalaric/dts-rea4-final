@@ -3,7 +3,7 @@ import React from 'react';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 
-function SimpleCard({title, image}) {
+function SearchCard({title, image}) {
     return (
         <Card>
             <div style={{ position: "relative" }}>
@@ -27,4 +27,4 @@ function SimpleCard({title, image}) {
     );
 }
 
-export default SimpleCard;
+export default SearchCard;
