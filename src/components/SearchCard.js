@@ -3,7 +3,6 @@ import React from 'react';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import Box from '@mui/material/Box';
-import { Link } from "react-router-dom";
 
 function SearchCard({title, image}) {
     return (
@@ -14,17 +13,15 @@ function SearchCard({title, image}) {
                     component="img"
                     image={image}
                 /> 
-
-
-            <Box
-                sx={{
-                    backgroundColor: 'rgba(0, 0, 0, 0.8)',
-                    p : '10px',
-                    position: "absolute",
-                    bottom: 0,
-                    color : 'bisque'
-                }}
-            >
+                <Box
+                    sx={{
+                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                        p : '10px',
+                        position: "absolute",
+                        bottom: 0,
+                        color : 'bisque'
+                    }}
+                >
                    {title}
                 </Box>
             </Box>

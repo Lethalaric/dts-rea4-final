@@ -17,7 +17,7 @@ function Navbar(props) {
     const [stateOpen, setStateOpen] = useState(false);
 
     const toggleDrawer = (open) => (event) => {
-        console.log("toggleDrawer",open)
+        // console.log("toggleDrawer",open)
         if (
             event &&
             event.type === 'keydown' &&
@@ -26,11 +26,8 @@ function Navbar(props) {
             return;
         }
 
-        // setState({ ...state, [anchor]: open });
         setStateOpen(open);
     };
-
-    
 
     return (
         <div>
@@ -69,9 +66,7 @@ function Navbar(props) {
             <main>
                 <Outlet />
             </main>
-            <footer>
                 <Footer />
-            </footer>
             <RightDrawer stateOpen={stateOpen} toggleDrawer={toggleDrawer} />
         </div>
     );
