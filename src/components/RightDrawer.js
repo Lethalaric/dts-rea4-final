@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 import Box from '@mui/material/Box';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
@@ -53,21 +53,27 @@ function RightDrawer(props) {
                 </Toolbar>
                 <Divider />
               <List>
-                <ListItem disablePadding>
-                    <ListItemButton component="a" href="/about">
-                        <ListItemText primary='ABOUT US' sx={{ color: 'bisque' }} />
-                    </ListItemButton>
-                </ListItem>
-                <ListItem disablePadding>
-                    <ListItemButton component="a" href="/channels">
-                        <ListItemText primary='CHANNEL' sx={{ color: 'bisque' }} />
-                    </ListItemButton>
-                </ListItem>
-                <ListItem disablePadding>
-                    <ListItemButton component="a" href="/storypage">
-                        <ListItemText primary='STORY' sx={{ color: 'bisque' }} />
-                    </ListItemButton>
-                </ListItem>
+                <Link className={"RouterLink"} to={`/about`}>
+                    <ListItem disablePadding>
+                        <ListItemButton>
+                            <ListItemText primary='ABOUT US' sx={{ color: 'bisque' }} />
+                        </ListItemButton>
+                    </ListItem>
+                </Link>
+                <Link className={"RouterLink"} to={`/channels`}>
+                    <ListItem disablePadding>
+                        <ListItemButton>
+                            <ListItemText primary='CHANNEL' sx={{ color: 'bisque' }} />
+                        </ListItemButton>
+                    </ListItem>
+                </Link>
+                <Link className={"RouterLink"} to={`/storypage`}>
+                    <ListItem disablePadding>
+                        <ListItemButton>
+                            <ListItemText primary='STORY' sx={{ color: 'bisque' }} />
+                        </ListItemButton>
+                    </ListItem>
+                </Link>
               </List>
               <Divider />
               <Toolbar>
@@ -78,16 +84,20 @@ function RightDrawer(props) {
                         sx={{ mx : '10px', color: '#282C34', backgroundColor: 'bisque', borderColor: 'bisque' }}
                     >Logout</Button>
                     :
-                    <><Button 
-                        variant='outlined' 
-                        sx={{ color: 'white', backgroundColor: '#282C34', borderColor: 'bisque' }}
-                        href={'/signin'}
-                    >Sign in</Button>
-                    <Button 
-                        variant='outlined' 
-                        sx={{ mx : '10px', color: '#282C34', backgroundColor: 'bisque', borderColor: 'bisque' }}
-                        href={'/signup'}
-                    >Create account</Button></>
+                    <>
+                        <Link to={`/signin`}>
+                            <Button 
+                                variant='outlined' 
+                                sx={{ color: 'white', backgroundColor: '#282C34', borderColor: 'bisque' }}
+                            >Sign in</Button>
+                        </Link>
+                        <Link to={`/signup`}>
+                            <Button 
+                                variant='outlined' 
+                                sx={{ mx : '10px', color: '#282C34', backgroundColor: 'bisque', borderColor: 'bisque' }}
+                            >Create account</Button>
+                        </Link>
+                    </>
                 }
               </Toolbar>
             </Box>

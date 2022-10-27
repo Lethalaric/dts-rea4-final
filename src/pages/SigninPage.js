@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../components/Provider/AuthProvider";
 import { signingIn } from "../components/utils/firebase/signin";   
 
+import { Link } from "react-router-dom";
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
@@ -101,9 +102,6 @@ export default function SigninPage() {
                 backgroundColor: '#282C34', 
               }}
             />
-            {/*<Link href="#" variant="body2" sx={{ color: 'white'}}>
-              Forgot password?
-            </Link>*/}
             <Box sx={{ alignItems: 'flex-start' }}>
               <Button
                 variant="contained"
@@ -120,16 +118,17 @@ export default function SigninPage() {
               Don’t have an account yet?
             </Typography>
             <Box sx={{ alignItems: 'flex-start' }}>
-              <Button
-                variant="outlined"
-                sx={{ 
-                  mt: 3, mb: 2,
-                  color: 'white', borderColor: 'bisque'
-                }}
-                href="/signup"
-              >
-                Create Account
-              </Button>
+              <Link to={`/signup`}>
+                <Button
+                  variant="outlined"
+                  sx={{ 
+                    mt: 3, mb: 2,
+                    color: 'white', borderColor: 'bisque'
+                  }}
+                >
+                  Create Account
+                </Button>
+              </Link>
             </Box>
           </Box>
         </Box>
