@@ -67,13 +67,15 @@ function RightDrawer(props) {
                         </ListItemButton>
                     </ListItem>
                 </Link>
-                <Link className={"RouterLink"} to={`/storypage`}>
-                    <ListItem disablePadding>
-                        <ListItemButton>
-                            <ListItemText primary='STORY' sx={{ color: 'bisque' }} />
-                        </ListItemButton>
-                    </ListItem>
-                </Link>
+                { authenticated &&
+                    <Link className={"RouterLink"} to={`/storyform`}>
+                        <ListItem disablePadding>
+                            <ListItemButton>
+                                <ListItemText primary='SUBMIT STORY' sx={{ color: 'bisque' }} />
+                            </ListItemButton>
+                        </ListItem>
+                    </Link>
+                }
               </List>
               <Divider />
               <Toolbar>
