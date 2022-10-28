@@ -17,7 +17,7 @@ function NewsPage(props) {
             </Box>
             <NewsContent/>
             <Typography variant="h4" sx={{ pt : 7 }}>Related Categories</Typography>
-            <NewsCard />
+            <NewsCard categories={"tech"} />
         </Container>
     );
 }

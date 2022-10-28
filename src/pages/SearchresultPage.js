@@ -35,7 +35,7 @@ export default function SearchresultPage() {
                     {allNewsByKeyword.data.map(news => {
                         return(
                             <Grid item key={news.uuid} xs={2} sm={6} md={4}>
-                                <SearchCard image={news.image_url} title={news.title} />
+                                <SearchCard image={news.image_url} title={news.title} uuid={news.uuid} />
                             </Grid>
                         )
                     })}
